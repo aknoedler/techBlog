@@ -2,15 +2,50 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Working Title</title>
-  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <title>Tech Blog</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-  {{{body}}}
+  <header>
+    <nav class="navbar has-background-primary" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <p class="navbar-item has-text-black has-text-weight-bold is-size-1">
+          Tech Blog
+        </p>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-start">
+
+        </div>
+        <div class="navbar-end">
+          <a class="navbar-item has-text-black is-size-3">
+            Homepage
+          </a>
+          <a class="navbar-item has-text-black is-size-3">
+            Dashboard
+          </a>
+          <a class="navbar-item has-text-black is-size-3">
+            Login
+          </a>
+        </div>
+      </div>
+
+    </nav>
+  </header>
+  <main class="has-background-dark p-6">
+    {{{body}}}
+  </main>
 </body>
 
 </html>
