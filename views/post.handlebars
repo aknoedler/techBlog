@@ -1,8 +1,7 @@
-<div class="post-list">
-    {{#each posts as |post|}}
+<div class='display-post'>
     <div class="card mb-6">
         <div class="card-header has-background-info">
-            <a href="api/posts/{{post.id}}" class="card-header-title">
+            <a class="card-header-title">
                 {{post.title}}
             </a>
         </div>
@@ -14,6 +13,20 @@
         <div class="card-footer has-background-grey-lighter">
             <p class="card-footer-item">
                 Posted by {{post.user.name}} at {{post.date_created}}
+            </p>
+        </div>
+    </div>
+
+    {{#each post.comments as |comment|}}
+    <div class="card mb-6">
+         <div class="card-content">
+            <p class="content">
+                {{comment.body}}
+            </p>
+        </div>
+        <div class="card-footer has-background-grey-lighter">
+            <p class="card-footer-item">
+                Posted by {{comment.user.name}} at {{comment.date_created}}
             </p>
         </div>
     </div>
