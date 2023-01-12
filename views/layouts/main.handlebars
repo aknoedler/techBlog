@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tech Blog</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  {{!-- <link rel="stylesheet" href="/css/style.css"> --}}
+  {{!--
+  <link rel="stylesheet" href="/css/style.css"> --}}
 </head>
 
 <body>
@@ -35,9 +36,18 @@
           <a class="navbar-item has-text-black is-size-3">
             Dashboard
           </a>
+          {{#if loggedIn}}
+          <a id="logout" class="navbar-item has-text-black is-size-3">
+            Logout
+          </a>
+          {{else}}
           <a href="/login" class="navbar-item has-text-black is-size-3">
             Login
           </a>
+          <a href="/signup" class="navbar-item has-text-black is-size-3">
+            Signup
+          </a>
+          {{/if}}
         </div>
       </div>
 
@@ -46,6 +56,9 @@
   <main class="has-background-dark p-6">
     {{{body}}}
   </main>
+  {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>

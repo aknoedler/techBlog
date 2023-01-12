@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['username'],
                 }
             ],
             order: [['date_created', 'DESC']]
@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
         const posts = postData.map((post) => post.get({plain: true}));
         res.render('homepage', {
             posts,
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.logged_in
         });
     } catch (err) {
         res.status(400).json(err);
@@ -23,11 +23,19 @@ router.get('/', async (req, res) => {
   });
 
   router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.session.logged_in) {
       res.redirect('/');
       return;
     }
     res.render('login');
+  });
+
+  router.get('/signup', (req, res) => {
+    if (req.session.logged_in) {
+      res.redirect('/');
+      return;
+    }
+    res.render('signup');
   });
 
   module.exports = router;
