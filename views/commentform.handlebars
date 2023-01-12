@@ -17,22 +17,16 @@
         </div>
     </div>
 
-    <div>
-        <button onclick="location.href = '/commentform/{{post.id}}'" class="button mb-6 is-link">Comment</button>
-    </div>
-
-    {{#each post.comments as |comment|}}
-    <div class="card mb-6">
-        <div class="card-content">
-            <p class="content">
-                {{comment.body}}
-            </p>
+    <form class="container comment-form">
+        <div class="field">
+            <label class="label has-text-white">Comment</label>
+            <div class="control">
+                <textarea class="textarea" type="text" id="comment-body" placeholder="enter your comment here"></textarea>
+            </div>
         </div>
-        <div class="card-footer has-background-grey-lighter">
-            <p class="card-footer-item">
-                Posted by {{comment.user.username}} at {{comment.date_created}}
-            </p>
-        </div>
-    </div>
-    {{/each}}
+        <div class="field">
+            <button class="button" type="submit">Submit</button>
+    </form>
 </div>
+
+<script src=".././js/commentform.js"></script>

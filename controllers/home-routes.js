@@ -46,6 +46,32 @@ router.get('/dashboard', async (req, res) => {
 
 })
 
+router.get('/commentform/:id', async (req, res) => {
+  if (req.session.logged_in) {
+    try {
+      const postData = await Post.findByPk(req.params.id, {
+        include: [
+            {
+                model: User,
+                attributes: ['username'],
+            }
+        ]
+    });
+    const post = postData.get({ plain: true });
+    res.render('commentform', {
+        post,
+        loggedIn: req.session.loggedIn
+    });
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  } else {
+    res.redirect('/login');
+    return;
+  }
+
+})
+
 router.get('/postform', async (req, res) => {
   if (req.session.logged_in) {
     res.render('postform');
