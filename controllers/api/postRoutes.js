@@ -9,18 +9,19 @@ router.get('/:id', async (req, res) => {
                     model: User,
                     attributes: ['username'],
                 },
-                 {
-                     model: Comment,
-                     include: [
+                {
+                    model: Comment,
+                    include: [
                         {
-                        model: User,
-                        attributes: ['username']
+                            model: User,
+                            attributes: ['username']
                         }
-                     ],
-                     attributes: ['body','date_created']
-                 }
-            ]});
-        const post = postData.get({plain: true});
+                    ],
+                    attributes: ['body', 'date_created']
+                }
+            ]
+        });
+        const post = postData.get({ plain: true });
         res.render('post', {
             post,
             loggedIn: req.session.loggedIn
@@ -29,5 +30,15 @@ router.get('/:id', async (req, res) => {
         res.status(400).json(err);
     }
 });
+
+router.post('/', async (req, res) => {
+    try {
+        req.body["user_id"] = req.session.user_id;
+        const post = Post.create(req.body);
+        res.status(200).json(post);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+})
 
 module.exports = router;

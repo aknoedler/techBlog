@@ -46,6 +46,15 @@ router.get('/dashboard', async (req, res) => {
 
 })
 
+router.get('/postform', async (req, res) => {
+  if (req.session.logged_in) {
+    res.render('postform');
+  } else {
+    res.redirect('/login');
+    return;
+  }
+})
+
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/');
