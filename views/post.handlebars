@@ -1,9 +1,9 @@
 <div class='display-post'>
     <div class="card mb-6">
         <div class="card-header has-background-info">
-            <a class="card-header-title">
+            <p class="card-header-title">
                 {{post.title}}
-            </a>
+            </p>
         </div>
         <div class="card-content">
             <p class="content">
@@ -17,8 +17,12 @@
         </div>
     </div>
 
-    <div>
+    <div class ="container is-flex is-justify-content-center">
         <button onclick="location.href = '/commentform/{{post.id}}'" class="button mb-6 is-link">Comment</button>
+    </div>
+
+    <div class ="container is-flex is-justify-content-center">
+        <h2 class="has-text-white is-size-3">Comments</h2>
     </div>
 
     {{#each post.comments as |comment|}}

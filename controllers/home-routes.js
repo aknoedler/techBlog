@@ -60,7 +60,7 @@ router.get('/commentform/:id', async (req, res) => {
     const post = postData.get({ plain: true });
     res.render('commentform', {
         post,
-        loggedIn: req.session.loggedIn
+        loggedIn: req.session.logged_in
     });
     } catch (err) {
       res.status(400).json(err);
