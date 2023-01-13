@@ -2,18 +2,18 @@
     <div class="field">
         <label class="label has-text-white">Title Your Post</label>
         <div class="control">
-            <input class="input" type="text" id="post-title" placeholder="title">
+            <input class="input" type="text" id="post-title" value="{{post.title}}">
         </div>
     </div>
     <div class="field">
         <label class="label has-text-white">Post</label>
         <div class="control">
-            <textarea class="textarea" type="text" id="post-body" placeholder="create your post here"></textarea>
+            <textarea class="textarea" type="text" id="post-body">{{post.body}}</textarea>
         </div>
     </div>
     <div class="field">
-        <button class="button" type="submit">Submit</button>
+        <button class="button" type="submit">Update</button>
     </div>
 </form>
 
-<script src="./js/postform.js"></script>
+<script src=".././js/updateform.js"></script>

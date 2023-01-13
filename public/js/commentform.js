@@ -1,4 +1,4 @@
-const signupFormHandler = async (event) => {
+const commentFormHandler = async (event) => {
   event.preventDefault();
 
   const body = document.querySelector('#comment-body').value.trim();
@@ -22,4 +22,4 @@ const signupFormHandler = async (event) => {
 
 document
   .querySelector('.comment-form')
-  .addEventListener('submit', signupFormHandler);
+  .addEventListener('submit', commentFormHandler);

@@ -1,5 +1,12 @@
 <div class="post-list">
-    <button onclick="location.href = '/postform'" class="button mb-6 is-link">Create New Post</button>
+    <div class="container is-flex is-justify-content-center">
+        <button onclick="location.href = '/postform'" class="button mb-6 is-link">Create New Post</button>
+    </div>
+
+    <div class="container is-flex is-justify-content-center">
+        <h2 class="has-text-white is-size-3">Your Posts</h2>
+    </div>
+
     {{#each posts as |post|}}
     <div class="card mb-6">
         <div class="card-header has-background-info">
@@ -18,5 +25,11 @@
             </p>
         </div>
     </div>
+
+    <div class="container is-flex is-justify-content-center">
+        <button onclick="location.href = '/deleteform/{{post.id}}'" class="button mb-6 mr-6 is-link">Delete Post</button>
+        <button onclick="location.href = '/updateform/{{post.id}}'"  class="button mb-6 ml-6 is-link">Update Post</button>
+    </div>
+
     {{/each}}
 </div>

@@ -39,6 +39,33 @@ router.post('/', async (req, res) => {
     } catch (err) {
         res.status(400).json(err);
     }
+});
+
+router.put('/:id', async (req, res) => {
+    try {
+        req.body["user_id"] = req.session.user_id;
+        const post = Post.update(req.body, {
+            where: {
+                id: req.params.id
+            }
+        });
+        res.status(200).json(post);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
+router.delete('/:id', async (req, res) => {
+    try {
+        const post = Post.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+        res.status(200).json(post);
+    } catch (err) {
+        res.status(400).json(err);
+    }
 })
 
 module.exports = router;

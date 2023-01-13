@@ -1,0 +1,30 @@
+<div class='display-post'>
+    <div class="card mb-6">
+        <div class="card-header has-background-info">
+            <p class="card-header-title">
+                {{post.title}}
+            </p>
+        </div>
+        <div class="card-content">
+            <p class="content">
+                {{post.body}}
+            </p>
+        </div>
+        <div class="card-footer has-background-grey-lighter">
+            <p class="card-footer-item">
+                Posted by {{post.user.username}} at {{post.date_created}}
+            </p>
+        </div>
+    </div>
+
+    <div class="container is-flex is-justify-content-center">
+        <h2 class="has-text-white is-size-3">Delete this post?</h2>
+    </div>
+
+    <div class="container is-flex is-justify-content-center">
+        <button id="delete" class="button mb-6 mr-6 is-link">Confirm</button>
+        <button onclick="location.href = '/dashboard'"  class="button mb-6 ml-6 is-link">Cancel</button>
+    </div>
+</div>
+
+<script src=".././js/deleteform.js"></script>
